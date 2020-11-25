@@ -1,0 +1,27 @@
+a)
+SELECT 
+	customer.cust_name,
+    customer.city, 
+    orders.ord_no,
+	orders.ord_date,
+    orders.purch_amt 
+AS "Order Amount" FROM customer customer 
+LEFT OUTER JOIN orders orders 
+ON customer.customer_id = orders.customer_id 
+order by orders.ord_date;
+
+b)
+SELECT 
+	customer.cust_name,
+    customer.city, 
+    orders.ord_no,
+	orders.ord_date,
+    orders.purch_amt 
+AS "Order Amount", 
+	salesman.name,
+    salesman.commission 
+FROM customer customer 
+LEFT OUTER JOIN orders orders 
+ON customer.customer_id = orders.customer_id 
+LEFT OUTER JOIN salesman salesman 
+ON salesman.salesman_id = orders.salesman_id;
